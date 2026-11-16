@@ -4,7 +4,7 @@ namespace KvevriGold.Simulator;
 public sealed class SimulationStats
 {
     /// <summary>Lower edges of the win histogram buckets in multiples of the bet (first bucket = no win).</summary>
-    public static readonly double[] BucketEdges = { 0, 1, 2, 5, 10, 20, 50, 100, 250, 500, 1000, 2500, 5000 };
+    public static readonly double[] BucketEdges = { 0, 1, 2, 5, 10, 20, 50, 100, 250, 500, 1000, 2500 };
 
     public long Rounds;
     public long TotalWin;
@@ -61,12 +61,12 @@ public sealed class SimulationStats
         }
     }
 
-    public static string BucketLabel(int i)
+    public static string BucketLabel(int i, int maxWinX)
     {
         if (i == 0) return "0 (no win)";
-        if (i == BucketEdges.Length + 1) return $"{BucketEdges[^1]:0}x (max win cap)";
+        if (i == BucketEdges.Length + 1) return $"{maxWinX}x (max win cap hit)";
         double lo = BucketEdges[i - 1];
-        string hi = i < BucketEdges.Length ? $"{BucketEdges[i]:0}x" : "cap";
+        string hi = i < BucketEdges.Length ? $"{BucketEdges[i]:0}x" : $"{maxWinX}x";
         return lo == 0 ? $"(0x, {hi})" : $"[{lo:0}x, {hi})";
     }
 }

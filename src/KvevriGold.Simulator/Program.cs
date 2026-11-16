@@ -60,7 +60,9 @@ string report = ReportWriter.Build(game, opt, total, sw.Elapsed);
 Console.WriteLine();
 Console.WriteLine(ReportWriter.Summary(game, total));
 Directory.CreateDirectory(opt.OutDir);
-string path = Path.Combine(opt.OutDir, $"rtp-{opt.Variant}-{ReportWriter.ShortCount(opt.Spins)}-seed{opt.Seed}.md");
+string path = Path.Combine(opt.OutDir, opt.RngKind == "crypto"
+    ? $"rtp-{opt.Variant}-{ReportWriter.ShortCount(opt.Spins)}-crypto.md"
+    : $"rtp-{opt.Variant}-{ReportWriter.ShortCount(opt.Spins)}-seed{opt.Seed}.md");
 File.WriteAllText(path, report);
 Console.WriteLine($"Report written to {path} ({sw.Elapsed.TotalSeconds:0.0}s, {opt.Spins / sw.Elapsed.TotalSeconds:N0} spins/s)");
 return 0;

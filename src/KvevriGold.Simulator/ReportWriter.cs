@@ -25,6 +25,7 @@ public static class ReportWriter
     }
 
     private static string P(double v) => $"{v * 100:0.000}%";
+    private static string P4(double v) => $"{v * 100:0.0000}%";
     private static string OneIn(double p) => p > 0 ? $"1 in {1 / p:N1}" : "never";
 
     public static string Summary(KvevriGoldGame game, SimulationStats s)
@@ -96,7 +97,7 @@ public static class ReportWriter
         {
             long c = s.Histogram[i];
             double f = (double)c / s.Rounds;
-            sb.AppendLine($"| {SimulationStats.BucketLabel(i)} | {c:N0} | {P(f)} | {(c > 0 ? (1 / f).ToString("N1") : "-")} | {P(s.HistogramWin[i] / bet / s.Rounds)} |");
+            sb.AppendLine($"| {SimulationStats.BucketLabel(i, def.Config.MaxWinX)} | {c:N0} | {P4(f)} | {(c > 0 ? (1 / f).ToString("N1") : "-")} | {P(s.HistogramWin[i] / bet / s.Rounds)} |");
         }
         sb.AppendLine();
         sb.AppendLine("Standard deviation is per paid round (base spin plus any free spins it triggered), in multiples of the bet. " +
