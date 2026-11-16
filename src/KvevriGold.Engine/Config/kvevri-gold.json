@@ -1,0 +1,208 @@
+{
+  "name": "Kvevri Gold",
+  "reels": 5,
+  "rows": 3,
+  "coinsPerBet": 20,
+  "maxWinX": 5000,
+  "symbols": [
+    {
+      "code": "TA",
+      "name": "Tamada",
+      "kind": "High"
+    },
+    {
+      "code": "KN",
+      "name": "Kantsi",
+      "kind": "High"
+    },
+    {
+      "code": "KV",
+      "name": "Kvevri",
+      "kind": "High"
+    },
+    {
+      "code": "CH",
+      "name": "Churchkhela",
+      "kind": "High"
+    },
+    {
+      "code": "GR",
+      "name": "Grapes",
+      "kind": "High"
+    },
+    {
+      "code": "A",
+      "name": "Ace",
+      "kind": "Low"
+    },
+    {
+      "code": "K",
+      "name": "King",
+      "kind": "Low"
+    },
+    {
+      "code": "Q",
+      "name": "Queen",
+      "kind": "Low"
+    },
+    {
+      "code": "J",
+      "name": "Jack",
+      "kind": "Low"
+    },
+    {
+      "code": "T",
+      "name": "Ten",
+      "kind": "Low"
+    },
+    {
+      "code": "W",
+      "name": "Golden Fleece Wild",
+      "kind": "Wild"
+    },
+    {
+      "code": "S",
+      "name": "Rtveli Basket Scatter",
+      "kind": "Scatter"
+    }
+  ],
+  "paytable": {
+    "TA": [
+      20,
+      60,
+      200
+    ],
+    "KN": [
+      15,
+      40,
+      150
+    ],
+    "KV": [
+      10,
+      30,
+      100
+    ],
+    "CH": [
+      8,
+      20,
+      80
+    ],
+    "GR": [
+      6,
+      15,
+      60
+    ],
+    "A": [
+      4,
+      10,
+      30
+    ],
+    "K": [
+      4,
+      10,
+      30
+    ],
+    "Q": [
+      3,
+      8,
+      25
+    ],
+    "J": [
+      2,
+      6,
+      20
+    ],
+    "T": [
+      2,
+      5,
+      20
+    ]
+  },
+  "scatter": {
+    "pays": {
+      "3": 40,
+      "4": 200,
+      "5": 1000
+    },
+    "awards": {
+      "3": 8,
+      "4": 12,
+      "5": 15
+    },
+    "retriggers": {
+      "3": 5,
+      "4": 8,
+      "5": 10
+    }
+  },
+  "freeSpins": {
+    "multiplierStart": 1,
+    "multiplierStep": 1,
+    "multiplierMax": 10
+  },
+  "reelSets": {
+    "base_harvest": [
+      ["CH", "J", "A", "T", "S", "Q", "CH", "K", "T", "K", "Q", "TA", "Q", "KV", "K", "TA", "Q", "J", "KN", "T", "GR", "K", "TA", "J", "KN", "Q", "J", "KN", "T", "J", "T", "GR", "GR", "A", "GR", "A", "A", "CH", "KV", "KV", "J", "T", "K", "Q", "GR", "KV", "CH", "A"],
+      ["A", "S", "W", "KV", "GR", "K", "A", "Q", "KV", "T", "CH", "KV", "K", "J", "GR", "KN", "J", "W", "GR", "A", "T", "GR", "Q", "TA", "Q", "CH", "KV", "GR", "TA", "A", "A", "Q", "T", "J", "KN", "J", "CH", "T", "Q", "T", "K", "W", "S", "K", "CH", "J", "Q", "W", "T", "TA", "K", "J", "KN"],
+      ["GR", "Q", "TA", "CH", "Q", "KN", "W", "GR", "KV", "J", "J", "T", "K", "J", "W", "A", "T", "K", "W", "K", "T", "KN", "A", "J", "Q", "S", "A", "K", "KV", "T", "A", "J", "KV", "W", "TA", "A", "KN", "CH", "J", "Q", "GR", "CH", "K", "T", "TA", "GR", "CH", "Q", "GR", "T", "Q", "KV"],
+      ["A", "GR", "GR", "K", "A", "K", "W", "Q", "J", "T", "CH", "J", "Q", "KN", "W", "J", "Q", "S", "CH", "W", "J", "TA", "K", "Q", "GR", "KV", "Q", "KV", "K", "T", "Q", "K", "CH", "J", "J", "A", "KN", "GR", "A", "KV", "KN", "TA", "T", "CH", "T", "T", "TA", "W", "GR", "A", "S", "T", "KV"],
+      ["S", "Q", "T", "Q", "J", "J", "CH", "KV", "K", "T", "A", "TA", "A", "KV", "T", "J", "W", "Q", "CH", "GR", "W", "KV", "GR", "K", "GR", "T", "TA", "KN", "J", "Q", "K", "J", "J", "GR", "K", "CH", "W", "K", "T", "A", "KN", "T", "A", "A", "Q", "GR", "KN", "TA", "Q", "KV", "CH"]
+    ],
+    "base_cellar": [
+      ["T", "J", "GR", "KN", "Q", "T", "S", "J", "A", "T", "J", "Q", "Q", "GR", "GR", "CH", "A", "A", "A", "KN", "CH", "KV", "Q", "KV", "K", "KN", "T", "Q", "Q", "J", "Q", "K", "TA", "K", "CH", "GR", "GR", "K", "TA", "J", "T", "K", "KV", "A", "A", "J", "CH", "K", "T", "T", "J"],
+      ["J", "CH", "A", "TA", "W", "A", "Q", "Q", "T", "W", "A", "T", "Q", "Q", "J", "K", "K", "J", "Q", "A", "T", "K", "A", "GR", "T", "GR", "TA", "GR", "KV", "KN", "T", "A", "J", "T", "CH", "J", "Q", "K", "KV", "CH", "S", "K", "CH", "GR", "GR", "KN", "W", "S", "T", "J", "KN", "J", "K", "Q", "KV"],
+      ["Q", "A", "J", "CH", "KN", "TA", "KV", "GR", "K", "K", "Q", "J", "A", "T", "Q", "W", "Q", "T", "CH", "KV", "T", "J", "T", "Q", "T", "K", "A", "CH", "W", "K", "J", "Q", "KN", "CH", "GR", "T", "S", "K", "A", "KV", "W", "GR", "GR", "TA", "A", "K", "J", "A", "GR", "Q", "J", "J", "T", "KN"],
+      ["A", "J", "K", "GR", "Q", "A", "CH", "CH", "S", "CH", "GR", "T", "A", "Q", "A", "TA", "GR", "A", "T", "K", "A", "J", "K", "W", "T", "W", "K", "J", "J", "J", "KN", "T", "TA", "KV", "J", "Q", "Q", "Q", "KV", "K", "KN", "W", "KV", "S", "J", "KN", "GR", "Q", "T", "GR", "K", "T", "CH", "T", "Q"],
+      ["T", "A", "GR", "T", "KN", "CH", "KV", "Q", "K", "TA", "K", "GR", "J", "KV", "KN", "Q", "A", "A", "J", "K", "TA", "J", "CH", "K", "GR", "W", "T", "Q", "A", "K", "A", "J", "GR", "CH", "T", "CH", "T", "K", "A", "J", "W", "Q", "J", "S", "GR", "T", "KV", "KN", "J", "Q", "Q", "Q", "T"]
+    ],
+    "free_rtveli": [
+      ["TA", "Q", "K", "J", "T", "Q", "CH", "GR", "T", "CH", "T", "KN", "K", "KV", "A", "J", "K", "A", "J", "Q", "Q", "GR", "KV", "GR", "J", "KV", "TA", "CH", "Q", "KN", "T", "KN", "Q", "K", "KV", "A", "GR", "A", "GR", "J", "TA", "A", "T", "CH", "T", "K", "S", "J"],
+      ["T", "CH", "GR", "Q", "GR", "T", "W", "Q", "Q", "W", "A", "KV", "S", "W", "J", "W", "J", "KN", "T", "S", "A", "J", "GR", "K", "T", "GR", "K", "K", "TA", "W", "T", "CH", "T", "Q", "K", "J", "J", "KV", "KN", "J", "GR", "CH", "TA", "Q", "KV", "TA", "K", "A", "A", "A", "CH", "Q", "KV", "KN"],
+      ["W", "GR", "TA", "W", "T", "J", "K", "KV", "W", "T", "J", "Q", "CH", "A", "A", "K", "KV", "T", "CH", "J", "KV", "A", "KV", "W", "TA", "K", "TA", "J", "T", "Q", "Q", "S", "CH", "KN", "Q", "KN", "GR", "A", "Q", "CH", "J", "K", "GR", "W", "Q", "KN", "GR", "T", "A", "K", "T", "J", "GR"],
+      ["T", "GR", "TA", "A", "CH", "Q", "TA", "GR", "CH", "KV", "W", "K", "T", "T", "S", "A", "J", "A", "Q", "K", "KN", "KV", "J", "TA", "W", "J", "J", "W", "GR", "J", "K", "KV", "W", "J", "T", "T", "T", "A", "W", "Q", "A", "KN", "Q", "Q", "GR", "CH", "CH", "K", "KN", "GR", "K", "Q", "KV", "S"],
+      ["TA", "J", "KN", "Q", "K", "KN", "J", "A", "CH", "A", "K", "T", "Q", "W", "J", "CH", "Q", "Q", "TA", "CH", "KV", "Q", "GR", "GR", "KV", "J", "KV", "GR", "A", "T", "T", "KV", "S", "A", "CH", "W", "K", "GR", "KN", "K", "J", "A", "GR", "W", "K", "W", "J", "T", "TA", "Q", "T", "T"]
+    ]
+  },
+  "variants": [
+    {
+      "id": "94",
+      "targetRtp": 0.94,
+      "baseReelSets": [
+        {
+          "reelSet": "base_harvest",
+          "weight": 583
+        },
+        {
+          "reelSet": "base_cellar",
+          "weight": 417
+        }
+      ],
+      "freeReelSets": [
+        {
+          "reelSet": "free_rtveli",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "96",
+      "targetRtp": 0.96,
+      "baseReelSets": [
+        {
+          "reelSet": "base_harvest",
+          "weight": 644
+        },
+        {
+          "reelSet": "base_cellar",
+          "weight": 356
+        }
+      ],
+      "freeReelSets": [
+        {
+          "reelSet": "free_rtveli",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}
