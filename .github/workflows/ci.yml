@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=results.trx"
+
+      - name: Simulator smoke run (1M rounds per variant)
+        run: |
+          for v in 94 96; do
+            dotnet run --configuration Release --no-build --project src/KvevriGold.Simulator -- \
+              --variant $v --spins 1000000 --seed 1 --quiet --out reports/scratch
+          done
+
+      - name: Upload test results and smoke reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            **/TestResults/*.trx
+            reports/scratch/*.md
