@@ -9,7 +9,24 @@ portfolio project. It covers the work an iGaming game-logic developer does day t
 - a **parallel Monte Carlo simulator** that verifies the game math (RTP split, hit rate, volatility,
   win distribution, confidence interval) and writes a markdown report,
 - a small **ASP.NET Core API** that serves spins with per-session state (free spins survive between requests),
-- **xUnit tests** with hand-built boards for every rule, plus a statistical RTP test.
+- **xUnit tests** with hand-built boards for every rule, plus a statistical RTP test,
+- a **playable browser demo** (Blazor WebAssembly) that runs this same engine client-side.
+
+## ▶ Play it
+
+**[giorgimaghlakelidze.github.io/kvevri-gold](https://giorgimaghlakelidze.github.io/kvevri-gold/)**: demo balance only, no real money.
+
+<p>
+  <a href="https://giorgimaghlakelidze.github.io/kvevri-gold/"><img src="docs/screenshot.png" alt="Kvevri Gold in free spins: winning ways highlighted, progressive multiplier at x2" width="560"></a>
+  <a href="https://giorgimaghlakelidze.github.io/kvevri-gold/"><img src="docs/screenshot-mobile.png" alt="Kvevri Gold on a phone" width="200"></a>
+</p>
+
+The page is a Blazor WebAssembly app (`src/KvevriGold.Web`) that references `KvevriGold.Engine` directly, so every spin
+in the browser goes through the same tested C# code as the simulator, using the browser's cryptographic RNG. It has
+winning-ways highlights, cascades animated step by step, free spins with the x1 to x10 multiplier meter, a 94/96 RTP
+switch, turbo and skip, and session stats (spins, total bet, total won, session RTP). Add `?seed=1155` to the URL
+for a reproducible seeded session that opens with free spins. All symbol art is original SVG drawn for this project.
+Every push to `main` deploys it to GitHub Pages through [`pages.yml`](.github/workflows/pages.yml).
 
 > **Honest note:** this is a personal portfolio project, not a licensed or certified game. The math was designed
 > and tuned by me with the included simulator. It has not been through an accredited test lab (GLI, BMM, iTech Labs),
@@ -98,6 +115,7 @@ flowchart LR
     SIM --> REP["reports/*.md"]
     API["KvevriGold.Api<br/>POST /spin · GET /config"] --> GAME
     API --> SESS["SessionStore<br/>(in-memory GameContext per session)"]
+    WEB["KvevriGold.Web<br/>Blazor WebAssembly demo"] --> GAME
     TESTS["KvevriGold.Tests (xUnit)"] --> GAME
     TESTS --> API
 ```
@@ -124,6 +142,7 @@ Design choices:
 src/KvevriGold.Engine/      game engine (RNG, config, math, features, protocol)
 src/KvevriGold.Simulator/   console RTP simulator, markdown reports
 src/KvevriGold.Api/         minimal ASP.NET Core API
+src/KvevriGold.Web/         playable Blazor WebAssembly demo (runs the engine in the browser)
 tests/KvevriGold.Tests/     xUnit tests
 tools/generate_config.py    reproducible reel-strip / config generator (tuning knobs)
 reports/                    measured simulation reports
@@ -135,7 +154,7 @@ Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ```bash
 dotnet build -c Release
-dotnet test  -c Release                      # 47 tests, including 1M-round RTP checks per variant
+dotnet test  -c Release                      # 52 tests, including 1M-round RTP checks per variant
 
 # RTP simulation (10M rounds, 8 threads); writes reports/rtp-96-10M-seed42.md
 dotnet run -c Release --project src/KvevriGold.Simulator -- --variant 96 --spins 10000000 --seed 42 --threads 8
@@ -144,6 +163,12 @@ dotnet run -c Release --project src/KvevriGold.Simulator -- --variant 96 --spins
 ```
 
 Seeded results are reproducible for the same seed **and** thread count.
+
+### Browser demo
+
+```bash
+dotnet run --project src/KvevriGold.Web      # then open the printed http://localhost URL
+```
 
 ### API
 
@@ -182,10 +207,11 @@ The report's "RTP by base reel set" table gives the RTP of each base reel set, w
 | Max win cap | Round win capped at 5,000x, remaining free spins forfeited, never exceeded in 200k simulated rounds |
 | RNG | Seeded determinism, independent streams, range checks, chi-square uniformity, full-game replay determinism, scripted RNG |
 | Statistics | 1,000,000 rounds per variant within 4 standard errors of target RTP |
+| Browser demo session | Play-money balance and stats match the engine, free spins are not charged and lock bet and variant, seeded replay equals the engine, bet ladder and refill |
 | API | `/config` hides strips, `/spin` keeps the session and balance, rejects invalid bets and variants |
 
 ## Possible next steps
 
-- A playable front end (Unity or HTML5/PixiJS) driven by the `/spin` response.
+- Sound, and a Unity client driven by the API's `/spin` response.
 - Exact (combinatorial) RTP calculation for the base game without cascades, to cross-check the simulator.
 - Persistence for sessions and an audit log of RNG draws per spin for replay.
