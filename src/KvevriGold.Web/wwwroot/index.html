@@ -3,25 +3,30 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KvevriGold.Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Kvevri Gold · playable slot demo (C# / .NET 8 in WebAssembly)</title>
+    <meta name="description" content="Playable demo of Kvevri Gold, an original 243-ways cascading slot engine written in C# / .NET 8 and running in the browser through Blazor WebAssembly. Play money only." />
+    <meta name="theme-color" content="#1a0710" />
     <base href="/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/app.css" />
-    <!-- If you add any scoped CSS files, uncomment the following to load them
-    <link href="KvevriGold.Web.styles.css" rel="stylesheet" /> -->
 </head>
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="boot">
+            <div class="boot-title">Kvevri Gold</div>
+            <svg class="loading-progress">
+                <circle r="40%" cx="50%" cy="50%" />
+                <circle r="40%" cx="50%" cy="50%" />
+            </svg>
+            <div class="loading-progress-text"></div>
+            <div class="boot-note">Loading the C# engine into your browser…</div>
+        </div>
     </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
+        Something went wrong.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
