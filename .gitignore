@@ -1,0 +1,19 @@
+# Build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+*.swp
+
+# Test results / coverage
+TestResults/
+coverage*/
+*.trx
+
+# Scratch simulator output (curated reports live in reports/)
+reports/scratch/
