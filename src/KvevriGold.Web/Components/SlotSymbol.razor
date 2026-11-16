@@ -1,0 +1,114 @@
+@* One reel symbol drawn in SVG (viewBox 100x100). Original artwork for Kvevri Gold. *@
+<svg class="sym sym-@Code" viewBox="0 0 100 100" role="img" aria-label="@SymbolInfo.Name(Code)">
+    @switch (Code)
+    {
+        case "TA":
+            @* Tamada: the toastmaster in a papakha hat and chokha, raising a horn *@
+            <path d="M22 100 L28 72 Q50 62 72 72 L78 100 Z" fill="url(#kg-chokha)" />
+            <g stroke="#e8c26a" stroke-width="2.2" stroke-linecap="round">
+                <line x1="32" y1="78" x2="40" y2="78" /><line x1="32" y1="84" x2="40" y2="84" /><line x1="32" y1="90" x2="40" y2="90" />
+                <line x1="60" y1="78" x2="68" y2="78" /><line x1="60" y1="84" x2="68" y2="84" /><line x1="60" y1="90" x2="68" y2="90" />
+            </g>
+            <circle cx="50" cy="50" r="17" fill="#f0c89a" />
+            <rect x="31" y="20" width="38" height="20" rx="7" fill="#efe6d8" />
+            <path d="M31 30 h38" stroke="#cfc3b0" stroke-width="2" />
+            <circle cx="43.5" cy="48" r="2.1" fill="#2b1a10" /><circle cx="56.5" cy="48" r="2.1" fill="#2b1a10" />
+            <path d="M50 54 C44 52 37 54 34 60 C40 58 45 59 50 57 C55 59 60 58 66 60 C63 54 56 52 50 54 Z" fill="#2b1a10" />
+            <path d="M74 66 C80 54 86 44 92 30 L84 28 C82 42 76 52 70 62 Z" fill="url(#kg-horn)" stroke="#5b3a1e" stroke-width="1" />
+            <ellipse cx="88" cy="29" rx="4.5" ry="2.2" fill="#7a1530" transform="rotate(10 88 29)" />
+            break;
+        case "KN":
+            @* Kantsi: a curved drinking horn with gold bands, full of wine *@
+            <path d="M16 30 C22 62 50 84 88 86 C66 74 46 54 40 22 Z" fill="url(#kg-horn)" stroke="#5b3a1e" stroke-width="1.5" />
+            <path d="M23 47 C30 49 38 44 42 38" stroke="url(#kg-gold-lin)" stroke-width="5" fill="none" />
+            <path d="M40 68 C47 68 54 63 56 58" stroke="url(#kg-gold-lin)" stroke-width="4" fill="none" />
+            <ellipse cx="28" cy="26" rx="13" ry="6" fill="#3a0a16" transform="rotate(-14 28 26)" stroke="url(#kg-gold-lin)" stroke-width="3" />
+            <ellipse cx="28" cy="26" rx="9" ry="3.6" fill="url(#kg-wine)" transform="rotate(-14 28 26)" />
+            <circle cx="86" cy="86" r="3.5" fill="url(#kg-gold)" />
+            break;
+        case "KV":
+            @* Kvevri: the egg-shaped clay vessel used for Georgian wine *@
+            <path d="M50 16 C78 16 84 52 66 80 C60 90 40 90 34 80 C16 52 22 16 50 16 Z" fill="url(#kg-clay)" stroke="#5a240f" stroke-width="1.5" />
+            <ellipse cx="50" cy="17" rx="14" ry="4.5" fill="#4a1c0b" stroke="#e7a06c" stroke-width="2" />
+            <path d="M28 40 Q34 36 40 40 T52 40 T64 40 T74 40" stroke="#f2c08f" stroke-width="2.2" fill="none" />
+            <path d="M27 48 Q33 44 39 48 T51 48 T63 48 T75 48" stroke="#8a3a17" stroke-width="2" fill="none" />
+            <ellipse cx="38" cy="32" rx="4" ry="9" fill="#ffffff" opacity=".25" transform="rotate(20 38 32)" />
+            break;
+        case "CH":
+            @* Churchkhela: walnut sweets dipped in grape must, hanging from a stick *@
+            <rect x="14" y="10" width="72" height="6" rx="3" fill="#7a4a1d" />
+            <line x1="35" y1="16" x2="35" y2="22" stroke="#d8c7a0" stroke-width="2" />
+            <line x1="65" y1="16" x2="65" y2="22" stroke="#d8c7a0" stroke-width="2" />
+            @foreach (var y in BeadRows)
+            {
+                <ellipse cx="35" cy="@y" rx="9" ry="7" fill="url(#kg-wine)" />
+                <ellipse cx="65" cy="@y" rx="9" ry="7" fill="url(#kg-amber)" />
+            }
+            <ellipse cx="32" cy="27" rx="2.5" ry="4" fill="#fff" opacity=".3" />
+            <ellipse cx="62" cy="27" rx="2.5" ry="4" fill="#fff" opacity=".3" />
+            break;
+        case "GR":
+            @* Grapes: a Saperavi bunch with a vine leaf *@
+            <path d="M50 22 C50 14 54 10 60 8" stroke="#5b3a1e" stroke-width="3" fill="none" />
+            <path d="M54 18 C62 8 78 10 82 20 C74 20 70 26 62 26 C58 24 56 21 54 18 Z" fill="#4f8a2b" stroke="#2e5a17" stroke-width="1.2" />
+            @foreach (var (cx, cy) in GrapeBerries)
+            {
+                <circle cx="@cx" cy="@cy" r="8.5" fill="url(#kg-grape)" />
+            }
+            break;
+        case "W":
+            @* Golden Fleece wild *@
+            <g fill="url(#kg-gold)" stroke="#8a5d10" stroke-width="1.2">
+                <circle cx="34" cy="34" r="12" /><circle cx="50" cy="28" r="13" /><circle cx="66" cy="34" r="12" />
+                <circle cx="26" cy="50" r="12" /><circle cx="74" cy="50" r="12" />
+                <circle cx="36" cy="62" r="13" /><circle cx="64" cy="62" r="13" /><circle cx="50" cy="48" r="16" />
+                <circle cx="50" cy="68" r="11" />
+            </g>
+            <rect x="16" y="70" width="68" height="20" rx="6" fill="#3a0a16" stroke="url(#kg-gold-lin)" stroke-width="2.5" />
+            @Label(85, "sym-label", "#ffe9a3", "WILD")
+            break;
+        case "S":
+            @* Rtveli scatter: a harvest basket of grapes *@
+            <path d="M28 44 C28 18 72 18 72 44" stroke="#7a4a1d" stroke-width="5" fill="none" />
+            @foreach (var (cx, cy) in BasketBerries)
+            {
+                <circle cx="@cx" cy="@cy" r="7" fill="url(#kg-grape)" />
+            }
+            <path d="M20 44 H80 L72 76 H28 Z" fill="url(#kg-wicker)" stroke="#5a3412" stroke-width="1.5" />
+            <g stroke="#5a3412" stroke-width="1.4" opacity=".7">
+                <line x1="22" y1="52" x2="78" y2="52" /><line x1="24" y1="60" x2="76" y2="60" /><line x1="26" y1="68" x2="74" y2="68" />
+                <line x1="35" y1="44" x2="38" y2="76" /><line x1="50" y1="44" x2="50" y2="76" /><line x1="65" y1="44" x2="62" y2="76" />
+            </g>
+            <rect x="12" y="78" width="76" height="17" rx="6" fill="#1f4d1a" stroke="url(#kg-gold-lin)" stroke-width="2" />
+            @Label(91, "sym-label sym-label-sm", "#ffe9a3", "RTVELI")
+            break;
+        default:
+            @* Low symbols: card ranks in wine-country colours *@
+            @Label(70, "sym-rank", RankColor, SymbolInfo.Rank(Code), " stroke=\"#1a0b06\" stroke-width=\"2.5\" paint-order=\"stroke\"")
+            break;
+    }
+</svg>
+
+@code {
+    [Parameter, EditorRequired] public string Code { get; set; } = "";
+
+    private static readonly int[] BeadRows = { 28, 38, 48, 58, 68, 78, 87 };
+    private static readonly (int, int)[] GrapeBerries =
+    {
+        (34, 34), (50, 32), (66, 34), (42, 48), (58, 48), (28, 48), (72, 48), (36, 62), (50, 62), (64, 62), (43, 75), (57, 75), (50, 88),
+    };
+    private static readonly (int, int)[] BasketBerries = { (34, 40), (46, 36), (58, 37), (68, 41), (40, 30), (54, 28) };
+
+    // Razor reserves <text>, so SVG text elements are emitted as markup (all inputs are constants).
+    private static MarkupString Label(int y, string cls, string fill, string content, string extra = "") =>
+        new($"<text x=\"50\" y=\"{y}\" text-anchor=\"middle\" class=\"{cls}\" fill=\"{fill}\"{extra}>{content}</text>");
+
+    private string RankColor => Code switch
+    {
+        "A" => "#e0485f",
+        "K" => "#3fb5a3",
+        "Q" => "#b07ce8",
+        "J" => "#7cc24a",
+        _ => "#f09a3e",
+    };
+}
