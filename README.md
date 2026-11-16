@@ -1,6 +1,6 @@
 # Kvevri Gold: slot game server engine and RTP simulator (C# / .NET 8)
 
-[![CI](https://github.com/OWNER/kvevri-gold/actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+[![CI](https://github.com/GiorgiMaghlakelidze/kvevri-gold/actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 
 **Kvevri Gold** is a Georgian-wine-themed **5x3, 243-ways cascading slot** written from scratch as a
 portfolio project. It covers the work an iGaming game-logic developer does day to day:
